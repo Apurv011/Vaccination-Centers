@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_config/flutter_config.dart';
-import 'package:get/get.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SessionBox extends StatelessWidget {
@@ -111,14 +108,18 @@ class SessionBox extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () async{
+                      onPressed: () async {
                         var url = "https://selfregistration.cowin.gov.in/";
                         if (await canLaunch(url)) {
-                        await launch(url);
+                          await launch(
+                              url,
+                              forceWebView: true,
+                              forceSafariVC: true,
+                              enableJavaScript: true
+                          );
                         } else {
-                        throw 'Could not launch $url';
+                          throw 'Could not launch $url';
                         }
-                        print("Book!");
                       },
                       child: const Text(
                         "Book Now",

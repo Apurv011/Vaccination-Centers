@@ -57,7 +57,7 @@ class _CentersNearMeState extends State<CentersNearMe> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF344955),
+        backgroundColor: const Color(0xFF344955),
         title: const Text(
           'Select Center',
           style: TextStyle(color: Colors.white),
