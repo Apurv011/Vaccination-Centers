@@ -31,8 +31,10 @@ class _StatesState extends State<States> {
     NetworkHelper networkHelper = NetworkHelper();
 
     var data = await networkHelper.getData("http://192.168.29.14:5000/state");
+    print(data);
 
     setState(() {
+      print("AAA");
       states.clear();
       for (var i = 0; i < data['states'].length; i++) {
         states.add(data['states'][i]['state_name']);

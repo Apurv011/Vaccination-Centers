@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const stateRoutes = require('./api/routes/state');
 const districtRoutes = require('./api/routes/district');
 const centerRoutes = require('./api/routes/center');
+const reviewRoutes = require('./api/routes/review');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use('/state', stateRoutes);
 app.use('/district', districtRoutes);
 app.use('/center', centerRoutes);
+app.use('/review', reviewRoutes);
 
 // Handle Error Requests
 app.use((req, res, next) => {

@@ -1,4 +1,6 @@
-import 'session_info.dart';
+import 'package:vaccination_center/review_sheet.dart';
+
+import 'session_review_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'location_page.dart';
@@ -53,6 +55,24 @@ class _CenterInfoTileState extends State<CenterInfoTile> {
                 const SizedBox(
                   width: 10.0,
                 ),
+                TextButton(
+                  onPressed: () {
+                    Scaffold.of(context).showBottomSheet(
+                          (context) {
+                        return ReviewSheet(
+                          centerId: widget.centerId,
+                        );
+                      },
+                      elevation: 20.0,
+                    );
+                  },
+                  child: Text("Write a Review for this Center",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: widget.color),
+                ),
+            ),
               ],
             ),
             const SizedBox(
@@ -73,6 +93,17 @@ class _CenterInfoTileState extends State<CenterInfoTile> {
                 ),
                 const SizedBox(
                   width: 10.0,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Get.to(SessionAndReviewPage(), arguments: [widget.centerId, "reviews", widget.name]);
+                  },
+                  child: Text("Check Reviews for this Center",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: widget.color),
+                  ),
                 ),
               ],
             ),
@@ -196,13 +227,13 @@ class _CenterInfoTileState extends State<CenterInfoTile> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(SessionInfo(), arguments: [widget.centerId, widget.color]);
+                    Get.to(SessionAndReviewPage(), arguments: [widget.centerId, widget.color]);
                   },
                   child: Text(
                     "Session Information",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 15.0,
+                        fontSize: 20.0,
                         color: widget.color),
                   ),
                 ),

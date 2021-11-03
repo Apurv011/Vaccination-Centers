@@ -1,7 +1,7 @@
 const neo4j = require('neo4j-driver');
 require("dotenv").config();
 
-var driver = neo4j.driver(process.env.DATABASE_URL, neo4j.auth.basic(process.env.DATABASE_USER, process.env.DATABASE_PASSWORD));
+var driver = neo4j.driver(process.env.DATABASE_URL_CLOUD, neo4j.auth.basic(process.env.DATABASE_USER, process.env.DATABASE_PASSWORD));
 var session = driver.session();
 
 exports.getAllDistricts = (req, res, next) => {

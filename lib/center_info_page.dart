@@ -18,7 +18,7 @@ class CenterInfoPage extends StatelessWidget {
         backgroundColor: const Color(0xFF344955),
       ),
       body: CenterInfoTile(
-          color: Get.arguments[0],
+          color: Color(int.parse(Get.arguments[0].toString().split('(0x')[1].split(')')[0], radix: 16)),
           name: Get.arguments[1],
           districtName: Get.arguments[2],
           stateName: Get.arguments[3],

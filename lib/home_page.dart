@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'states.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -79,6 +81,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 35,
+                  fontWeight: FontWeight.bold,
                   color: Color(0xff1abc9c),
                 ),
               ),
@@ -89,7 +92,6 @@ class HomePage extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Get.to(States(), arguments: ["states"]);
-                  print("Locate!");
                 },
                 child: const Text(
                   "Centers by State",
@@ -194,7 +196,8 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                      ));
+                      ),
+                  );
                 },
                 child: const Text(
                   "Centers by Pincode",
