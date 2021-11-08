@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:ffi';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:vaccination_center/review_box.dart';
 import 'session_box.dart';
 import 'package:intl/intl.dart';
@@ -107,7 +108,7 @@ class _SessionAndReviewPageState extends State<SessionAndReviewPage> {
       }
     } else {
       http.Response response = await http.get(
-          Uri.parse("http://192.168.29.14:5000/review/${Get.arguments[0]}"));
+          Uri.parse("${FlutterConfig.get('SERVER_URL')}review/${Get.arguments[0]}"));
 
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);

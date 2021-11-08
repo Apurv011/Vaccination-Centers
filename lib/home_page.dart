@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_config/flutter_config.dart';
 import 'states.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -179,9 +179,11 @@ class HomePage extends StatelessWidget {
                                   padding: const EdgeInsets.all(8.0),
                                   child: TextButton(
                                     onPressed: () {
+                                      Navigator.pop(context);
                                       Get.to(VaccinationCenter(),
-                                          arguments: ["http://192.168.29.14:5000/center/pincode/${pincodeController.text.trim()}"]
+                                          arguments: ["${FlutterConfig.get('SERVER_URL')}center/pincode/${pincodeController.text.trim()}"]
                                       );
+                                      pincodeController.clear();
                                     },
                                     child: const Text(
                                       "Go",

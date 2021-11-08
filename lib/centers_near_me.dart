@@ -1,3 +1,5 @@
+import 'package:flutter_config/flutter_config.dart';
+
 import 'center_tile.dart';
 import 'networking.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,7 @@ class _CentersNearMeState extends State<CentersNearMe> {
     showSpinner = true;
     NetworkHelper networkHelper = NetworkHelper();
 
-    var data = await networkHelper.getData("http://192.168.29.14:5000/center/nearMe/${Get.arguments[0]}/${Get.arguments[1]}");
+    var data = await networkHelper.getData("${FlutterConfig.get('SERVER_URL')}center/nearMe/${Get.arguments[0]}/${Get.arguments[1]}");
 
     setState(() {
       for (var i = 0; i < data['centers'].length; i++) {

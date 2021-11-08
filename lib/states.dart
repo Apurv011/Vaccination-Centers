@@ -1,3 +1,5 @@
+import 'package:flutter_config/flutter_config.dart';
+
 import 'districts.dart';
 import 'networking.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class _StatesState extends State<States> {
     showSpinner = true;
     NetworkHelper networkHelper = NetworkHelper();
 
-    var data = await networkHelper.getData("http://192.168.29.14:5000/state");
+    var data = await networkHelper.getData("${FlutterConfig.get('SERVER_URL')}state");
     print(data);
 
     setState(() {
@@ -62,7 +64,7 @@ class _StatesState extends State<States> {
               onTap: (){
                 if(Get.arguments[0]=="states") {
                   Get.to(VaccinationCenter(), arguments: [
-                    "http://192.168.29.14:5000/center/state/${states[index]}"
+                    "${FlutterConfig.get('SERVER_URL')}center/state/${states[index]}"
                   ]);
                 }
                 else{

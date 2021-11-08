@@ -107,7 +107,7 @@ class ReviewSheet extends StatelessWidget {
                 var newFormat = DateFormat("dd-MM-yyyy");
                 date = newFormat.format(dt);
                 http.Response response = await http.post(
-                    Uri.parse("http://192.168.29.14:5000/review"),
+                    Uri.parse("${FlutterConfig.get('SERVER_URL')}review"),
                     headers: <String, String>{
                       'Content-Type': 'application/json; charset=UTF-8',
                     },

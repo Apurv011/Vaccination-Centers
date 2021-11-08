@@ -32,7 +32,7 @@ class _DistrictState extends State<District> {
     showSpinner = true;
     NetworkHelper networkHelper = NetworkHelper();
 
-    var data = await networkHelper.getData("http://192.168.29.14:5000/district/state/${Get.arguments[0]}");
+    var data = await networkHelper.getData("${FlutterConfig.get('SERVER_URL')}district/state/${Get.arguments[0]}");
 
     setState(() {
       districts.clear();
@@ -62,7 +62,7 @@ class _DistrictState extends State<District> {
               return ListTile(
                 onTap: (){
                     Get.to(VaccinationCenter(), arguments: [
-                      "http://192.168.29.14:5000/center/district/${districts[index]}"
+                      "${FlutterConfig.get('SERVER_URL')}center/district/${districts[index]}"
                     ]);
                 },
                 title: Text(districts[index]),
